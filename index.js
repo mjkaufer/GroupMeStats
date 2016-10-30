@@ -59,9 +59,9 @@ function startMessageScraping() {
 		}
 
 	getMessages({}, function(e, r){
-		console.log("All done")
+		// console.log("All done")
 		// console.log(messageArray)
-		console.log(messageArray.length)
+		// console.log(messageArray.length)
 
 		for(var i = 0; i < messageArray.length; i++){
 			var posterId = messageArray[i].sender_id
@@ -76,7 +76,7 @@ function startMessageScraping() {
 						likeMap[messageArray[i].favorited_by[j]].messagesLiked++
 					}	
 				} catch (ex) {
-					console.log("ERROR",posterId, messageArray[i])
+					// console.log("ERROR",posterId, messageArray[i])
 				}
 			}
 
@@ -88,7 +88,7 @@ function startMessageScraping() {
 }
 
 API.Groups.show(config.ACCESS_TOKEN, config.GROUP_ID, function(e, r){
-	console.log(r)
+	// console.log(r)
 	var members = r.members
 
 	for(var i = 0; i < members.length; i++){
