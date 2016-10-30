@@ -35,11 +35,6 @@ API.Users.me(config.ACCESS_TOKEN, function(err,ret) {
 
 var messageArray = []//0 is newest
 
-API.Messages.index(config.ACCESS_TOKEN, config.GROUP_ID, {}, function(e, r){
-	
-
-	console.log(r)
-})
 
 function getMessages(opts, callback){
 	if(messageArray.length >= messageCount)
