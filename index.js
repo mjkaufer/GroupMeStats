@@ -1,3 +1,5 @@
+//DONT HAVE THE BOT POST IN THE GROUP IT WILL BREAK THINGS
+
 var config = require('./config.js')
 
 var API = require('groupme').Stateless
@@ -7,7 +9,8 @@ var topLikeCount = 3;//top n people that like your messages
 
 var memberIDMap = {
 	//id: name
-	"system": "GroupMe"
+	"system": "GroupMe",
+	"361735": "DataBot"//remove this line
 }
 
 var likeMap = {
@@ -31,6 +34,12 @@ API.Users.me(config.ACCESS_TOKEN, function(err,ret) {
 });
 
 var messageArray = []//0 is newest
+
+API.Messages.index(config.ACCESS_TOKEN, config.GROUP_ID, {}, function(e, r){
+	
+
+	console.log(r)
+})
 
 function getMessages(opts, callback){
 	if(messageArray.length >= messageCount)
@@ -157,7 +166,7 @@ function formatLikeMap(){
 	top 3 people that like your stuff
 	
 	*/
-
+	console.log("Stats from the last " + messageCount + " messages")
 	for(memberID in likeMap){
 		console.log("User: " + memberIDMap[memberID])
 		
